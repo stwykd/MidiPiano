@@ -1,8 +1,3 @@
-/**
- * Author: dnj
- * 6.005 Elements of Software Construction
- * (c) 2008-9, MIT and Daniel Jackson
- */
 package piano;
 
 import java.applet.Applet;

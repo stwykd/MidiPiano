@@ -1,7 +1,3 @@
-/**
- * 6.005 Elements of Software Construction
- * (c) 2007-8-9, MIT and Rob Miller
- */
 package midi;
 
 import java.util.Date;

@@ -1,8 +1,3 @@
-/**
- * Author: rcm
- * 6.005 Elements of Software Construction
- * (c) 2008-9, MIT and Robert Miller
- */
 package music;
 
 /**
