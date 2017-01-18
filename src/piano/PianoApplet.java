@@ -31,7 +31,6 @@ public class PianoApplet extends Applet {
                 char key = (char) e.getKeyCode();
                 switch (key) {
                 case '1':
-                	System.out.println("key '1' presssed.");
                 case '2':
                 case '3':
                 case '4':

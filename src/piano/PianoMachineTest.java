@@ -33,7 +33,7 @@ public class PianoMachineTest {
     
     @Test
     public void singleRepeatedNoteTest() throws MidiUnavailableException {
-        String expected = "on(61,PIANO) wait(0) on(61,PIANO) wait(100) off(61,PIANO)";
+        String expected = "on(61,PIANO) wait(100) off(61,PIANO)";
         
         PianoMachine pm = new PianoMachine();
         
@@ -72,8 +72,8 @@ public class PianoMachineTest {
     
     @Test
     public void twoRepeatedNotesTest() throws MidiUnavailableException {
-    	String expected1 = "on(71,PIANO) wait(0) on(65,PIANO) wait(0) on(71,PIANO) "+
-    			"wait(0) on(65,PIANO) wait(100) off(65,PIANO) wait(0) off(71,PIANO)";
+    	String expected1 = "on(71,PIANO) wait(0) on(65,PIANO) wait(100) off(65,PIANO) "
+    			+ "wait(0) off(71,PIANO)";
     	
     	PianoMachine pm = new PianoMachine();
     	

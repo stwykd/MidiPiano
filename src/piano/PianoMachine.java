@@ -16,11 +16,15 @@ public class PianoMachine {
 	
 	private Midi midi;
 	private midi.Instrument instrument = Midi.DEFAULT_INSTRUMENT;
+	private boolean[] playing;
 	
 	// level of pitch (in octaves) compared to the starting note pitch
 	private PitchLevel pitchLevel = PitchLevel.DEFAULT_LEVEL;
 	public boolean isRecording = false;
 	public List<NoteEvent> recordedEvents = new ArrayList<NoteEvent>();
+	
+	// the lowest raw pitch, C
+	private int c = new Pitch(0).toMidiFrequency();
 	
 	/**
 	 * constructor for PianoMachine.
@@ -35,34 +39,44 @@ public class PianoMachine {
             e1.printStackTrace();
             return;
         }
+    	
+        playing = new boolean[] {false, false, false, false, false,
+        		false, false, false, false, false, false, false};
     }
     
     /**
-     * Turn an note event associated with the specified pitch.
+     * Turn on note event associated with the specified pitch,
+     * if the note isn't already playing
      * @param rawPitch: the frequency of a musical note, required to
      * 					be among the set {0, 1, 2, ..., 10, 11}
      */
     public void beginNote(Pitch rawPitch) {
+    	if (playing[rawPitch.toMidiFrequency()-c]) return;
+    	playing[rawPitch.toMidiFrequency()-c] = true;
+    	
     	long time = getCurrentTime();
-    	NoteEvent event;
-    	event = new NoteEvent(rawPitch, time,
+    	NoteEvent event = new NoteEvent(rawPitch, time,
     						  instrument, NoteEvent.Kind.start);
     	if (isRecording) {
     		recordedEvents.add(event);
     	}
     	Pitch modulatedPitch = modulatePitch(rawPitch);
+    	
     	midi.beginNote(modulatedPitch.toMidiFrequency(), instrument);
     }
     
     /**
-     * Turn off an note event associated with the specified pitch.
+     * Turn off an note event associated with the specified pitch,
+     * if the note is currently playing
      * @param rawPitch: the frequency of a musical note, required to
      * 					be among the set {0, 1, 2, ..., 10, 11}
      */
     public void endNote(Pitch rawPitch) {
+    	if (!playing[rawPitch.toMidiFrequency()-c]) return;
+    	playing[rawPitch.toMidiFrequency()-c] = false;
+    	
     	long time = getCurrentTime();
-    	NoteEvent event;
-    	event = new NoteEvent(rawPitch, time,
+    	NoteEvent event = new NoteEvent(rawPitch, time,
     						  instrument, NoteEvent.Kind.stop);
     	if (isRecording) {
     		recordedEvents.add(event);
