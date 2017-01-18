@@ -244,7 +244,7 @@ public class PianoMachineTest {
 		Midi.wait(100);
 		pm.endNote(new Pitch(11));
 		
-        assertEquals(expected1, midi.history());;
+        assertEquals(expected1, midi.history());
     }
     
     @Test

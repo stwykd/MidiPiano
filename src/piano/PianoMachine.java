@@ -182,7 +182,7 @@ public class PianoMachine {
     				executeNoteEvent(event);
     				Midi.wait((int)delayTimeArray[i]);
     			}
-    			// Don't forget the last note event
+    			// don't forget the last note event
     			NoteEvent lastEvent = recordedEvents.get(eventAmount-1);
     			executeNoteEvent(lastEvent);
     		}
