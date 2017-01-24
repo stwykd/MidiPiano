@@ -54,10 +54,10 @@ public class PianoMachine {
     	if (playing[rawPitch.toMidiFrequency()-c]) return;
     	playing[rawPitch.toMidiFrequency()-c] = true;
     	
-    	long time = getCurrentTime();
-    	NoteEvent event = new NoteEvent(rawPitch, time,
-    						  instrument, NoteEvent.Kind.start);
     	if (isRecording) {
+		long time = getCurrentTime();
+    		NoteEvent event = new NoteEvent(rawPitch, time,
+						instrument, NoteEvent.Kind.start);
     		recordedEvents.add(event);
     	}
     	Pitch modulatedPitch = modulatePitch(rawPitch);
@@ -75,10 +75,10 @@ public class PianoMachine {
     	if (!playing[rawPitch.toMidiFrequency()-c]) return;
     	playing[rawPitch.toMidiFrequency()-c] = false;
     	
-    	long time = getCurrentTime();
-    	NoteEvent event = new NoteEvent(rawPitch, time,
-    						  instrument, NoteEvent.Kind.stop);
     	if (isRecording) {
+		long time = getCurrentTime();
+    		NoteEvent event = new NoteEvent(rawPitch, time,
+						instrument, NoteEvent.Kind.stop);
     		recordedEvents.add(event);
     	}
     	Pitch modulatedPitch = modulatePitch(rawPitch);
