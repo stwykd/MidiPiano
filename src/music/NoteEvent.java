@@ -3,19 +3,19 @@ package music;
 import midi.Instrument;
 
 public class NoteEvent {
-	
-    public enum Kind { 
-        start, stop
-    }
-    
-	private final Pitch pitch; 
+
+	public enum Kind {
+		start, stop
+	}
+
+	private final Pitch pitch;
 	private final long time;
 	private final Instrument instr;
-	private final Kind kind; 
-	
+	private final Kind kind;
+
 	/**
 	 * constructor for note event
-	 * 
+	 *
 	 * @param pitch
 	 * @param time
 	 * @param instr
@@ -29,7 +29,7 @@ public class NoteEvent {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return pitch: pitch object wrapping midi freq of note event.
 	 */
 	public Pitch getPitch() {
@@ -37,7 +37,7 @@ public class NoteEvent {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return time: time in milliseconds when note event occurred.
 	 */
 	public long getTime() {
@@ -45,19 +45,19 @@ public class NoteEvent {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return instr: instrument used for the midi note event
 	 */
-    public Instrument getInstr() {
-        return instr;
-    }
+	public Instrument getInstr() {
+		return instr;
+	}
 
-    /**
-     * 
-     * @return kind: was the event a note on or note off?
-     */
-    public Kind getKind() {
-        return kind;
-    } 
-	
+	/**
+	 *
+	 * @return kind: was the event a note on or note off?
+	 */
+	public Kind getKind() {
+		return kind;
+	}
+
 }

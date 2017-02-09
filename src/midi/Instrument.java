@@ -160,10 +160,10 @@ public enum Instrument {
      * in the ordering if this is the last)
      */
     public Instrument next () {
-    	for (Instrument i: Instrument.values()) {
-    		if (i.ordinal() == (ordinal() + 1) % 128)
-    			return i;
-    	}
-		return this;    	
+        for (Instrument i: Instrument.values()) {
+            if (i.ordinal() == (ordinal() + 1) % 128)
+                return i;
+        }
+        return this;
     }
 }
