@@ -1,6 +1,6 @@
 # MidiPiano
 This java applet allows you to:
- - Play notes using your keyboard
+ - Play notes using your keyboard or midi device
  - Change among different instruments
  - Change octaves
  - Record sessions and play them back
