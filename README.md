@@ -1,5 +1,5 @@
 # MidiPiano
-Midi piano that can:
+This java applet allows you to:
  - Play notes using your keyboard
  - Change among different instruments
  - Change octaves
